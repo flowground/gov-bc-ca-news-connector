@@ -1,0 +1,18 @@
+{
+    "type": "object",
+    "properties": {
+        "postKeys": {
+            "required": false,
+            "default": "",
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "api_version": {
+            "required": true,
+            "default": "1.0",
+            "type": "string"
+        }
+    }
+}

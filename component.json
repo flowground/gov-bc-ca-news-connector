@@ -1,0 +1,466 @@
+{
+    "title": "BC Gov News API Service 1.0",
+    "description": "News API",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/gov.bc.ca/news/1.0/openapi.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://news.api.gov.bc.ca/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "FacebookPosts_GetByUri": {
+            "main": "./lib/actions/FacebookPosts_GetByUri.js",
+            "title": "Get a Facebook post based on a Uri",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/FacebookPosts_GetByUri.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Home_Get": {
+            "main": "./lib/actions/Home_Get.js",
+            "title": "Returns the top level content for the home page",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Home_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Ministries_GetAll": {
+            "main": "./lib/actions/Ministries_GetAll.js",
+            "title": "Get all ministries",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Ministries_GetAll.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Ministries_GetOne": {
+            "main": "./lib/actions/Ministries_GetOne.js",
+            "title": "Get the Ministry associated with the ministry key",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Ministries_GetOne.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Ministries_GetMinister": {
+            "main": "./lib/actions/Ministries_GetMinister.js",
+            "title": "Get the Minister associated with the ministry key",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Ministries_GetMinister.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Newsletters_GetAll": {
+            "main": "./lib/actions/Newsletters_GetAll.js",
+            "title": "Get all newsletters",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Newsletters_GetAll.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Newsletters_GetImage": {
+            "main": "./lib/actions/Newsletters_GetImage.js",
+            "title": "Get the image object reference by of a Newsletter Edition associated with the image guid",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Newsletters_GetImage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Newsletters_GetOne": {
+            "main": "./lib/actions/Newsletters_GetOne.js",
+            "title": "Get a specific newsletter",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Newsletters_GetOne.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Newsletters_GetEdition": {
+            "main": "./lib/actions/Newsletters_GetEdition.js",
+            "title": "Returns a specific edition of a newsletter",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Newsletters_GetEdition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Newsletters_GetArticle": {
+            "main": "./lib/actions/Newsletters_GetArticle.js",
+            "title": "Get an article belonging to a Newsletter edition",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Newsletters_GetArticle.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Posts_Get": {
+            "main": "./lib/actions/Posts_Get.js",
+            "title": "Get the posts associated with the keys in the list passed in.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Posts_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Posts_GetAllKeys": {
+            "main": "./lib/actions/Posts_GetAllKeys.js",
+            "title": "Get all keys for the specified index (newsroom or category)",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Posts_GetAllKeys.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Posts_GetKeyFromReference": {
+            "main": "./lib/actions/Posts_GetKeyFromReference.js",
+            "title": "Get the post key associated with the reference.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Posts_GetKeyFromReference.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Posts_GetLatest": {
+            "main": "./lib/actions/Posts_GetLatest.js",
+            "title": "Get the latest posts of postKind for the specified index (default or category)",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Posts_GetLatest.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Posts_GetLatestMediaUri": {
+            "main": "./lib/actions/Posts_GetLatestMediaUri.js",
+            "title": "Gets the latest Social Media post for the social media type passed in.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Posts_GetLatestMediaUri.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Posts_GetOne": {
+            "main": "./lib/actions/Posts_GetOne.js",
+            "title": "Get the post associated with the key",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Posts_GetOne.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ResourceLinks_GetAll": {
+            "main": "./lib/actions/ResourceLinks_GetAll.js",
+            "title": "Get all resource links",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ResourceLinks_GetAll.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Sectors_GetAll": {
+            "main": "./lib/actions/Sectors_GetAll.js",
+            "title": "Get all Sectors",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Sectors_GetAll.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Sectors_GetOne": {
+            "main": "./lib/actions/Sectors_GetOne.js",
+            "title": "Get the sector associated with the key",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Sectors_GetOne.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Services_GetAll": {
+            "main": "./lib/actions/Services_GetAll.js",
+            "title": "Get all Services",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Services_GetAll.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Services_GetOne": {
+            "main": "./lib/actions/Services_GetOne.js",
+            "title": "Get the service associated with the passed key",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Services_GetOne.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Slides_GetAll": {
+            "main": "./lib/actions/Slides_GetAll.js",
+            "title": "Get all Slides",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Slides_GetAll.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Slides_GetOne": {
+            "main": "./lib/actions/Slides_GetOne.js",
+            "title": "Get the slide associated to the id",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Slides_GetOne.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Tags_GetAll": {
+            "main": "./lib/actions/Tags_GetAll.js",
+            "title": "Get all Tags",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Tags_GetAll.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Tags_GetOne": {
+            "main": "./lib/actions/Tags_GetOne.js",
+            "title": "Get the Tag associated with the key",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Tags_GetOne.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Themes_GetAll": {
+            "main": "./lib/actions/Themes_GetAll.js",
+            "title": "Get all Themes",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Themes_GetAll.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Themes_GetOne": {
+            "main": "./lib/actions/Themes_GetOne.js",
+            "title": "Get the Theme associated with the key",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Themes_GetOne.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

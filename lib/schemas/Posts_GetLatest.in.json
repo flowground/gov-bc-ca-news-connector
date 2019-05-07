@@ -1,0 +1,35 @@
+{
+    "type": "object",
+    "properties": {
+        "indexKind": {
+            "required": true,
+            "type": "string"
+        },
+        "indexKey": {
+            "required": true,
+            "type": "string"
+        },
+        "postKind": {
+            "required": false,
+            "default": "",
+            "type": "string"
+        },
+        "count": {
+            "required": false,
+            "default": "",
+            "format": "int32",
+            "type": "integer"
+        },
+        "skip": {
+            "required": false,
+            "default": "",
+            "format": "int32",
+            "type": "integer"
+        },
+        "api_version": {
+            "required": true,
+            "default": "1.0",
+            "type": "string"
+        }
+    }
+}

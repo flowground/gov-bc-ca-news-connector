@@ -1,0 +1,15 @@
+{
+    "type": "object",
+    "properties": {
+        "uri": {
+            "required": false,
+            "default": "",
+            "type": "string"
+        },
+        "api_version": {
+            "required": true,
+            "default": "1.0",
+            "type": "string"
+        }
+    }
+}

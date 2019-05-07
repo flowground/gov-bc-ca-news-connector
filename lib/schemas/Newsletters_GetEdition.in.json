@@ -1,0 +1,18 @@
+{
+    "type": "object",
+    "properties": {
+        "newsletterKey": {
+            "required": true,
+            "type": "string"
+        },
+        "editionKey": {
+            "required": true,
+            "type": "string"
+        },
+        "api_version": {
+            "required": true,
+            "default": "1.0",
+            "type": "string"
+        }
+    }
+}
